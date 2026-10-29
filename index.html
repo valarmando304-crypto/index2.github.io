@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío Anatómicamente: Huesos, Músculos y Articulaciones</title>
+    <title>Desafío de Anatomía: Huesos, Músculos y Articulaciones</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -59,14 +59,15 @@
             </div>
         </div>
 
-        <div id="user-info-bar" class="hidden flex items-center space-x-6">
-            <div class="bg-slate-800/80 border border-slate-700/60 px-4 py-1.5 rounded-full flex items-center space-x-2">
+        <div id="user-info-bar" class="hidden flex items-center space-x-4 sm:space-x-6">
+            <div class="bg-slate-800/80 border border-slate-700/60 px-3 py-1.5 rounded-full flex items-center space-x-2">
                 <i class="fa-solid fa-user text-blue-400 text-xs"></i>
-                <span id="display-username" class="font-semibold text-sm text-slate-200">Jugador</span>
+                <span id="display-username" class="font-semibold text-xs sm:text-sm text-slate-200">Jugador</span>
+                <span id="display-viti-badge" class="hidden bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold px-2 py-0.5 rounded-full">⚽ Logro Viti +100</span>
             </div>
-            <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 px-4 py-1.5 rounded-full flex items-center space-x-2">
-                <i class="fa-solid fa-trophy text-amber-400 text-sm"></i>
-                <span id="display-score" class="font-bold text-amber-300 text-sm">0 pts</span>
+            <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 px-3 py-1.5 rounded-full flex items-center space-x-2">
+                <i class="fa-solid fa-trophy text-amber-400 text-xs sm:text-sm"></i>
+                <span id="display-score" class="font-bold text-amber-300 text-xs sm:text-sm">0 pts</span>
             </div>
         </div>
     </header>
@@ -75,45 +76,44 @@
     <main class="flex-grow container mx-auto px-4 py-8 flex flex-col justify-center items-center max-w-4xl">
 
         <!-- SCREEN 0: REGISTRATION -->
-        <section id="screen-welcome" class="w-full bg-slate-800/90 border border-slate-700/80 rounded-3xl p-8 shadow-2xl text-center space-y-6">
+        <section id="screen-welcome" class="w-full bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-6">
             <div class="inline-block p-4 bg-blue-500/10 rounded-full text-blue-400 mb-2">
                 <i class="fa-solid fa-child-reaching text-5xl"></i>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¡Pone a prueba tus conocimientos anatómicos!</h2>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¡Desafío Interactivo de Anatomía!</h2>
             <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-                Afronta 3 fases desafiantes sobre **huesos, músculos y articulaciones** del cuerpo humano. ¡Responde rápido para obtener puntuación máxima!
+                Afronta 3 fases educativas sobre **huesos, músculos y articulaciones**. ¡Ingresa tu nombre y compite por el primer lugar en la tabla de posiciones!
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left my-6">
                 <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-blue-400 font-bold block mb-1">Fase 1: Opción Múltiple</span>
-                    <p class="text-xs text-slate-400">10 preguntas teóricas. <5s = 5 pts, ≥5s = 3 pts.</p>
+                    <p class="text-xs text-slate-400">10 preguntas teóricas con imagen. <5s = 5 pts, ≥5s = 3 pts.</p>
                 </div>
                 <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-indigo-400 font-bold block mb-1">Fase 2: Selección Visual</span>
-                    <p class="text-xs text-slate-400">10 preguntas con imágenes. Identifica la estructura correcta.</p>
+                    <p class="text-xs text-slate-400">10 preguntas. Elige entre 4 imágenes sin texto de ayuda.</p>
                 </div>
                 <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-purple-400 font-bold block mb-1">Fase 3: Memorama</span>
-                    <p class="text-xs text-slate-400">6 pares (12 cartas). Resuelve en <30s para ganar +15 pts.</p>
+                    <p class="text-xs text-slate-400">12 tarjetas (6 pares de concepto e imagen). <30s = 15 pts, <60s = 7 pts.</p>
                 </div>
             </div>
 
             <form id="form-start" class="max-w-md mx-auto space-y-4">
                 <div>
-                    <label for="input-username" class="block text-left text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tu Nombre de Usuario:</label>
-                    <input type="text" id="input-username" required placeholder="Ej. Dra. Maria / JuanPerez" 
+                    <label for="input-username" class="block text-left text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Nombre del Jugador:</label>
+                    <input type="text" id="input-username" required placeholder="Ingresa tu nombre aquí..." 
                         class="w-full bg-slate-900 border border-slate-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 rounded-xl px-4 py-3 text-white placeholder-slate-500 outline-none transition">
                 </div>
                 <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/30 transition transform hover:-translate-y-0.5 active:translate-y-0 text-base">
-                    Comenzar Juego <i class="fa-solid fa-play ml-2"></i>
+                    Registrar e Iniciar Juego <i class="fa-solid fa-play ml-2"></i>
                 </button>
             </form>
         </section>
 
         <!-- SCREEN 1: MULTIPLE CHOICE (FASE 1 - 10 PREGUNTAS) -->
         <section id="screen-phase1" class="hidden w-full bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-            <!-- Header status bar -->
             <div class="flex justify-between items-center border-b border-slate-700/60 pb-4">
                 <div class="flex items-center space-x-2">
                     <span class="bg-blue-500/20 text-blue-400 font-bold px-3 py-1 rounded-lg text-xs tracking-wider uppercase">Fase 1: Opción Múltiple</span>
@@ -126,12 +126,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                <!-- SVG / Custom Image display area -->
-                <div class="md:col-span-1 bg-slate-900/80 rounded-2xl p-4 border border-slate-700/60 flex flex-col items-center justify-center min-h-[200px] shadow-inner relative overflow-hidden group">
-                    <!-- Image container - easy to substitute with img tag -->
-                    <div id="p1-image-container" class="w-full h-full flex items-center justify-center">
-                        <!-- Dynamic SVG or IMG content injected here -->
-                    </div>
+                <!-- Image display area -->
+                <div class="md:col-span-1 bg-slate-900/80 rounded-2xl p-2 border border-slate-700/60 flex flex-col items-center justify-center min-h-[200px] shadow-inner relative overflow-hidden group">
+                    <img id="p1-img" src="" alt="Imagen de pregunta" class="max-h-48 w-auto object-contain rounded-xl"
+                        onerror="this.onerror=null; this.src='https://placehold.co/300x200/1e293b/60a5fa?text=' + encodeURIComponent(this.dataset.filename || 'Imagen Local');">
+                    <span id="p1-img-caption" class="text-[10px] text-slate-500 mt-2 font-mono"></span>
                 </div>
 
                 <!-- Question and options -->
@@ -150,7 +149,7 @@
             </div>
         </section>
 
-        <!-- SCREEN 2: VISUAL SELECTION (FASE 2 - 10 PREGUNTAS) -->
+        <!-- SCREEN 2: VISUAL SELECTION (FASE 2 - 10 PREGUNTAS - SOLO IMÁGENES) -->
         <section id="screen-phase2" class="hidden w-full bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
             <div class="flex justify-between items-center border-b border-slate-700/60 pb-4">
                 <div class="flex items-center space-x-2">
@@ -164,11 +163,11 @@
             </div>
 
             <div>
-                <h3 id="p2-question-text" class="text-lg sm:text-xl font-bold text-slate-100 mb-4 text-center">Selecciona la imagen que corresponde a...</h3>
+                <h3 id="p2-question-text" class="text-lg sm:text-xl font-bold text-slate-100 mb-4 text-center">Selecciona la imagen que corresponde...</h3>
                 
-                <!-- 4 Visual Cards Grid -->
+                <!-- 4 Visual Cards Grid without text -->
                 <div id="p2-options-container" class="grid grid-cols-2 gap-4">
-                    <!-- Cards will be injected dynamically -->
+                    <!-- Cards with images only injected dynamically -->
                 </div>
             </div>
 
@@ -178,7 +177,7 @@
             </div>
         </section>
 
-        <!-- SCREEN 3: MEMORAMA (FASE 3 - 12 CARTAS / 6 PARES) -->
+        <!-- SCREEN 3: MEMORAMA (FASE 3 - 12 CARTAS / 6 PARES CON IMAGEN Y CONCEPTO) -->
         <section id="screen-phase3" class="hidden w-full bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
             <div class="flex justify-between items-center border-b border-slate-700/60 pb-4">
                 <div class="flex items-center space-x-2">
@@ -192,10 +191,10 @@
             </div>
 
             <div class="text-center">
-                <p class="text-xs text-slate-400">Encuentra los pares de conceptos de Huesos, Músculos y Articulaciones.</p>
+                <p class="text-xs text-slate-400">Encuentra la pareja correspondiente uniendo el **Nombre/Definición** con su **Imagen Anatómica**.</p>
             </div>
 
-            <!-- Memorama Grid (12 Cards: 4x3 or 3x4) -->
+            <!-- Memorama Grid (12 Cards) -->
             <div id="p3-grid" class="grid grid-cols-3 sm:grid-cols-4 gap-3">
                 <!-- Memorama cards injected here -->
             </div>
@@ -207,8 +206,8 @@
                 <div class="inline-block p-4 bg-amber-500/10 rounded-full text-amber-400 mb-1">
                     <i class="fa-solid fa-award text-5xl"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-white">¡Desafío Completado!</h2>
-                <p class="text-slate-400 text-sm">Resumen de rendimiento anatómico</p>
+                <h2 class="text-3xl font-extrabold text-white">¡Juego Finalizado!</h2>
+                <p class="text-slate-400 text-sm">Resumen de puntuación obtenida</p>
             </div>
 
             <!-- Score Breakdown Card -->
@@ -216,6 +215,12 @@
                 <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                     <span class="text-slate-400 text-sm">Jugador</span>
                     <span id="res-username" class="font-bold text-white">---</span>
+                </div>
+                <div id="res-viti-row" class="hidden flex justify-between items-center border-b border-slate-800 pb-3 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
+                    <span class="text-emerald-300 text-sm font-semibold flex items-center gap-1.5">
+                        <span>⚽</span> Logro Especial "Viti"
+                    </span>
+                    <span class="font-bold text-emerald-400">+100 pts</span>
                 </div>
                 <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                     <span class="text-slate-400 text-sm">Puntos Fase 1 (Opción Múltiple)</span>
@@ -230,7 +235,7 @@
                     <span id="res-score-p3" class="font-semibold text-purple-400">+0 pts</span>
                 </div>
                 <div class="flex justify-between items-center pt-2 text-lg">
-                    <span class="font-bold text-slate-200">Puntaje Total Global</span>
+                    <span class="font-bold text-slate-200">Puntaje Total Final</span>
                     <span id="res-score-total" class="font-extrabold text-2xl text-amber-400">0 pts</span>
                 </div>
             </div>
@@ -239,7 +244,7 @@
             <div class="space-y-4">
                 <h3 class="text-lg font-bold text-slate-200 flex items-center space-x-2">
                     <i class="fa-solid fa-ranking-star text-amber-400"></i>
-                    <span>Tabla de Clasificación Global</span>
+                    <span>Tabla de Posiciones Final (Ganadores)</span>
                 </h3>
 
                 <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl overflow-hidden">
@@ -247,14 +252,14 @@
                         <table class="w-full text-left text-sm">
                             <thead class="bg-slate-800/80 text-slate-400 uppercase text-xs sticky top-0">
                                 <tr>
-                                    <th class="py-3 px-4">Pos.</th>
-                                    <th class="py-3 px-4">Usuario</th>
-                                    <th class="py-3 px-4 text-right">Puntos</th>
+                                    <th class="py-3 px-4">Posición</th>
+                                    <th class="py-3 px-4">Jugador</th>
+                                    <th class="py-3 px-4 text-right">Puntaje Total</th>
                                 </tr>
                             </thead>
                             <tbody id="leaderboard-body" class="divide-y divide-slate-800 text-slate-300">
                                 <tr>
-                                    <td colspan="3" class="py-4 text-center text-slate-500">Cargando puntuaciones...</td>
+                                    <td colspan="3" class="py-4 text-center text-slate-500">Cargando posiciones...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -266,7 +271,7 @@
             <div class="flex flex-col sm:flex-row gap-4 pt-2">
                 <button id="btn-restart" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-blue-600/30 flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-rotate-right"></i>
-                    <span>Jugar de Nuevo</span>
+                    <span>Jugar Nuevamente</span>
                 </button>
             </div>
         </section>
@@ -275,17 +280,17 @@
 
     <!-- Footer -->
     <footer class="py-4 text-center text-xs text-slate-500 border-t border-slate-800">
-        Plataforma Educativa de Anatomía Humana &copy; 2026
+        Juego Educativo de Anatomía Humana &copy; 2026
     </footer>
 
-    <!-- Firebase Script -->
+    <!-- Firebase Script & Logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Firebase Configuration setup
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'anatomia-game-app';
         const firebaseConfig = typeof __firebase_config !== 'undefined' 
             ? JSON.parse(__firebase_config) 
             : { apiKey: "demo-key", authDomain: "demo.firebaseapp.com", projectId: "demo-project" };
@@ -295,8 +300,8 @@
         const db = getFirestore(app);
 
         let currentUser = null;
+        let localLeaderboard = []; // Fallback local leaderboard if Firebase is unreachable
 
-        // Initialize Authentication
         async function initAuth() {
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -305,15 +310,15 @@
                     await signInAnonymously(auth);
                 }
             } catch (err) {
-                console.error("Auth error:", err);
+                console.warn("Auth warning (using local fallback if needed):", err);
             }
         }
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 currentUser = user;
-                loadLeaderboard();
             }
+            loadLeaderboard();
         });
 
         initAuth();
@@ -323,6 +328,7 @@
         // -------------------------------------------------------------
         let gameState = {
             username: '',
+            isViti: false,
             scoreP1: 0,
             scoreP2: 0,
             scoreP3: 0,
@@ -346,192 +352,216 @@
             p3MatchedPairs: 0
         };
 
+        // Helper function for local images fallback
+        function getImgPath(filename) {
+            return filename; // Looks in the same folder as index.html
+        }
+
         // -------------------------------------------------------------
-        // DATA: FASE 1 - 10 PREGUNTAS DE OPCIÓN MÚLTIPLE
-        // (Huesos, Músculos, Articulaciones)
+        // DATA: FASE 1 - 10 PREGUNTAS DE OPCIÓN MÚLTIPLE (Huesos, Músculos, Articulaciones)
+        // Usa imágenes locales: fase1_q1.jpg a fase1_q10.jpg
         // -------------------------------------------------------------
         const questionsP1 = [
             {
-                question: "¿Cuál es el hueso más largo y resistente del cuerpo humano?",
-                options: ["Fémur", "Húmero", "Tibia", "Radio"],
+                question: "¿Cuál es el hueso más largo, denso y fuerte del esqueleto humano?",
+                options: ["Fémur", "Húmero", "Tibia"],
                 correct: 0,
-                // SVG / Image generator
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-blue-400"><path d="M45,10 C40,10 38,15 42,20 L45,45 L45,80 C38,85 40,90 48,90 C55,90 58,85 52,80 L52,45 L55,20 C60,15 58,10 52,10 Z"/></svg>`
+                img: "fase1_femur.jpg"
             },
             {
-                question: "¿Qué tipo de articulación es la rodilla?",
-                options: ["Sinovial en bisagra (Trocleartrosis)", "Articulación fija (Sutura)", "Articulación esférica (Enartrosis)", "Articulación en silla de montar"],
+                question: "¿Qué tipo de articulación permite el movimiento en un solo eje como el codo?",
+                options: ["Articulación en Bisagra (Trocleartrosis)", "Sutura Craneal", "Articulación Esférica"],
                 correct: 0,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-indigo-400"><circle cx="50" cy="35" r="15"/><rect x="42" y="52" width="16" height="30" rx="4"/><circle cx="50" cy="48" r="6" fill="#f59e0b"/></svg>`
+                img: "fase1_articulacion_codo.jpg"
             },
             {
-                question: "¿Cuál es el músculo principal de la respiración situado bajo los pulmones?",
-                options: ["Intercostal", "Diafragma", "Pectoral mayor", "Recto del abdomen"],
+                question: "¿Cuál es el músculo principal implicado en la respiración abdominal?",
+                options: ["Pectoral Mayor", "Diafragma", "Recto Abdominal"],
                 correct: 1,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-purple-400"><path d="M10,50 Q50,20 90,50 Q50,60 10,50 Z"/></svg>`
+                img: "fase1_diafragma.jpg"
             },
             {
-                question: "¿Cuál de estos huesos pertenece al miembro superior (brazo)?",
-                options: ["Peroné", "Fémur", "Húmero", "Rótula"],
-                correct: 2,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-blue-300"><rect x="46" y="15" width="8" height="70" rx="4"/><circle cx="50" cy="15" r="8"/><circle cx="50" cy="85" r="7"/></svg>`
-            },
-            {
-                question: "¿Qué tejido une los músculos a los huesos?",
-                options: ["Ligamentos", "Tendones", "Cartílago hialino", "Líquido sinovial"],
+                question: "¿Qué hueso par del brazo se localiza en el lado del pulgar?",
+                options: ["Cúbito", "Radio", "Húmero"],
                 correct: 1,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 stroke-rose-400 stroke-[6] fill-none"><path d="M20,80 L50,50 L80,20"/></svg>`
+                img: "fase1_radio.jpg"
             },
             {
-                question: "¿Qué músculo voluminoso forma el contorno del hombro?",
-                options: ["Trapecio", "Deltoides", "Bíceps braquial", "Dorsal ancho"],
+                question: "¿Qué estructura de tejido conectivo denso une los músculos con los huesos?",
+                options: ["Ligamento", "Tendón", "Cartílago Hialino"],
                 correct: 1,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-amber-400"><path d="M20,30 L80,30 L50,80 Z"/></svg>`
+                img: "fase1_tendon.jpg"
             },
             {
-                question: "¿Cómo se clasifican las articulaciones del cráneo?",
-                options: ["Diartrosis (Móviles)", "Anfiartrosis (Semimóviles)", "Sinartrosis (Inmóviles/Suturas)", "Sinoviales"],
-                correct: 2,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-slate-400"><path d="M50,15 C25,15 20,35 20,55 C20,75 35,85 50,85 C65,85 80,75 80,55 C80,35 75,15 50,15 Z M35,45 Q50,55 65,45" stroke="#1e293b" stroke-width="3" fill="none"/></svg>`
-            },
-            {
-                question: "¿Cuál es el músculo potente encargado de flexionar el codo?",
-                options: ["Tríceps braquial", "Bíceps braquial", "Cuádriceps", "Gastrocnemio"],
+                question: "¿Qué músculo triangular de forma abultada cubre la articulación del hombro?",
+                options: ["Trapecio", "Deltoides", "Bíceps Braquial"],
                 correct: 1,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-red-400"><ellipse cx="50" cy="50" rx="15" ry="30"/></svg>`
+                img: "fase1_deltoides.jpg"
             },
             {
-                question: "¿Qué hueso sesamoideo protege la articulación de la rodilla?",
-                options: ["Rótula (Patela)", "Astrágalo", "Escafoides", "Calcáneo"],
+                question: "¿Cómo se denominan las articulaciones inmóviles que unen los huesos del cráneo?",
+                options: ["Sinartrosis / Suturas", "Diartrosis", "Anfiartrosis"],
                 correct: 0,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-emerald-400"><circle cx="50" cy="50" r="22"/></svg>`
+                img: "fase1_sutura_craneo.jpg"
+            },
+            {
+                question: "¿Cuál es el músculo anterior del brazo encargado de flexionar el codo?",
+                options: ["Tríceps Braquial", "Bíceps Braquial", "Bracorradial"],
+                correct: 1,
+                img: "fase1_biceps.jpg"
+            },
+            {
+                question: "¿Qué hueso sesamoideo se encuentra en el tendón del cuádriceps protegiendo la rodilla?",
+                options: ["Rótula (Patela)", "Calcáneo", "Astrágalo"],
+                correct: 0,
+                img: "fase1_rotula.jpg"
             },
             {
                 question: "¿Cuántas vértebras forman la región cervical de la columna vertebral?",
-                options: ["12 vértebras", "5 vértebras", "7 vértebras", "10 vértebras"],
+                options: ["12 Vértebras", "5 Vértebras", "7 Vértebras"],
                 correct: 2,
-                svg: `<svg viewBox="0 0 100 100" class="w-32 h-32 fill-teal-400"><rect x="40" y="15" width="20" height="8" rx="2"/><rect x="40" y="27" width="20" height="8" rx="2"/><rect x="40" y="39" width="20" height="8" rx="2"/><rect x="40" y="51" width="20" height="8" rx="2"/><rect x="40" y="63" width="20" height="8" rx="2"/><rect x="40" y="75" width="20" height="8" rx="2"/></svg>`
+                img: "fase1_columna_cervical.jpg"
             }
         ];
 
         // -------------------------------------------------------------
         // DATA: FASE 2 - 10 PREGUNTAS DE SELECCIÓN VISUAL
-        // PUNTOS DE PERSONALIZACIÓN DE URL DE IMÁGENES:
-        // Reemplaza las URLs marcadas con 'url' por tus propias imágenes.
+        // 4 Imágenes sin texto explicativo por pregunta. Usa archivos .jpg locales directos.
         // -------------------------------------------------------------
         const questionsP2 = [
             {
-                question: "¿Cuál de las siguientes estructuras corresponde al HÚMERO?",
+                question: "¿Cuál de las siguientes imágenes corresponde al FÉMUR?",
                 options: [
-                    /* CUSTOMIZABLE IMAGE URL 1 */
-                    { name: "Húmero", url: "https://placehold.co/300x300/1e293b/60a5fa?text=Humero+(Hueso)", isCorrect: true },
-                    { name: "Fémur", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Femur+(Hueso)", isCorrect: false },
-                    { name: "Cráneo", url: "https://placehold.co/300x300/1e293b/a855f7?text=Craneo", isCorrect: false },
-                    { name: "Pelvis", url: "https://placehold.co/300x300/1e293b/10b981?text=Pelvis", isCorrect: false }
+                    { img: "femur.jpg", isCorrect: true },
+                    { img: "humero.jpg", isCorrect: false },
+                    { img: "pelvis.jpg", isCorrect: false },
+                    { img: "craneo.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Selecciona la representación del MÚSCULO CUÁDRICEPS (Muslo):",
+                question: "Selecciona la imagen del MÚSCULO CUÁDRICEPS (Muslo):",
                 options: [
-                    { name: "Bíceps", url: "https://placehold.co/300x300/1e293b/ef4444?text=Biceps+Braquial", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 2 */
-                    { name: "Cuádriceps", url: "https://placehold.co/300x300/1e293b/10b981?text=Cuadriceps+(Muslo)", isCorrect: true },
-                    { name: "Gastrocnemio", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Gemelos/Pantorrilla", isCorrect: false },
-                    { name: "Dorsal Ancho", url: "https://placehold.co/300x300/1e293b/8b5cf6?text=Dorsal+Espalda", isCorrect: false }
+                    { img: "biceps.jpg", isCorrect: false },
+                    { img: "cuadriceps.jpg", isCorrect: true },
+                    { img: "gemelos.jpg", isCorrect: false },
+                    { img: "dorsal.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Identifica la ARTICULACIÓN SINOVIAL (Móvil):",
+                question: "Identifica la ARTICULACIÓN SINOVIAL DE LA RODILLA:",
                 options: [
-                    { name: "Sutura Craneal", url: "https://placehold.co/300x300/1e293b/64748b?text=Sutura+Inmovil", isCorrect: false },
-                    { name: "Sínfisis del Pubis", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Cartilaginosa", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 3 */
-                    { name: "Articulación Rodilla", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Rodilla+(Sinovial)", isCorrect: true },
-                    { name: "Dientes (Gónfosis)", url: "https://placehold.co/300x300/1e293b/ec4899?text=Gonfosis", isCorrect: false }
+                    { img: "sutura_craneo.jpg", isCorrect: false },
+                    { img: "sinfisis_pubis.jpg", isCorrect: false },
+                    { img: "articulacion_rodilla.jpg", isCorrect: true },
+                    { img: "dientes_gonfosis.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "¿Cuál de estas imágenes muestra la COLUMNA VERTEBRAL?",
+                question: "¿Cuál de estas imágenes representa la COLUMNA VERTEBRAL?",
                 options: [
-                    /* CUSTOMIZABLE IMAGE URL 4 */
-                    { name: "Columna Vertebral", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Columna+Vertebral", isCorrect: true },
-                    { name: "Caja Torácica", url: "https://placehold.co/300x300/1e293b/10b981?text=Costillas", isCorrect: false },
-                    { name: "Cintura Escapular", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Omoplato/Clavicula", isCorrect: false },
-                    { name: "Mano (Carpianos)", url: "https://placehold.co/300x300/1e293b/a855f7?text=Huesos+Mano", isCorrect: false }
+                    { img: "columna_vertebral.jpg", isCorrect: true },
+                    { img: "caja_toracica.jpg", isCorrect: false },
+                    { img: "escapula.jpg", isCorrect: false },
+                    { img: "huesos_mano.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Selecciona el MÚSCULO DELTOIDES (Hombro):",
+                question: "Selecciona la imagen del MÚSCULO DELTOIDES (Hombro):",
                 options: [
-                    { name: "Pectoral Mayor", url: "https://placehold.co/300x300/1e293b/ef4444?text=Pectoral+Pecho", isCorrect: false },
-                    { name: "Glúteo Mayor", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Gluteo", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 5 */
-                    { name: "Deltoides", url: "https://placehold.co/300x300/1e293b/8b5cf6?text=Deltoides+(Hombro)", isCorrect: true },
-                    { name: "Abdominales", url: "https://placehold.co/300x300/1e293b/10b981?text=Recto+Abdominal", isCorrect: false }
+                    { img: "pectoral.jpg", isCorrect: false },
+                    { img: "gluteo.jpg", isCorrect: false },
+                    { img: "deltoides.jpg", isCorrect: true },
+                    { img: "abdominales.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "¿Cuál imagen ilustra la TIBIA y el PERONÉ?",
+                question: "Identifica la estructura de TIBIA Y PERONÉ (Pierna):",
                 options: [
-                    { name: "Cúbito y Radio", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Cubito+y+Radio", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 6 */
-                    { name: "Tibia y Peroné", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Tibia+y+Perone", isCorrect: true },
-                    { name: "Metatarsianos", url: "https://placehold.co/300x300/1e293b/ec4899?text=Pie", isCorrect: false },
-                    { name: "Fémur", url: "https://placehold.co/300x300/1e293b/10b981?text=Femur", isCorrect: false }
+                    { img: "cubito_radio.jpg", isCorrect: false },
+                    { img: "tibia_perone.jpg", isCorrect: true },
+                    { img: "huesos_pie.jpg", isCorrect: false },
+                    { img: "femur.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Identifica la articulación tipo ESFÉRICA / ENARTROSIS (Ej. Hombro/Cadera):",
+                question: "Selecciona la ARTICULACIÓN ESFÉRICA (CADERA / ENARTROSIS):",
                 options: [
-                    /* CUSTOMIZABLE IMAGE URL 7 */
-                    { name: "Cadera (Enartrosis)", url: "https://placehold.co/300x300/1e293b/a855f7?text=Cadera+(Esferica)", isCorrect: true },
-                    { name: "Codo (Trocleartrosis)", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Codo+(Bisagra)", isCorrect: false },
-                    { name: "Muñeca (Condílea)", url: "https://placehold.co/300x300/1e293b/10b981?text=Muneca", isCorrect: false },
-                    { name: "Vertebras (Artrodia)", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Vertebras", isCorrect: false }
+                    { img: "articulacion_cadera.jpg", isCorrect: true },
+                    { img: "articulacion_codo.jpg", isCorrect: false },
+                    { img: "articulacion_muneca.jpg", isCorrect: false },
+                    { img: "vertebras.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Selecciona la estructura de un TENDÓN uniendo Músculo a Hueso:",
+                question: "Identifica la imagen que representa a un TENDÓN:",
                 options: [
-                    { name: "Ligamento", url: "https://placehold.co/300x300/1e293b/ef4444?text=Ligamento+Hueso-Hueso", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 8 */
-                    { name: "Tendón", url: "https://placehold.co/300x300/1e293b/10b981?text=Tendon+Musculo-Hueso", isCorrect: true },
-                    { name: "Cartílago", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Cartilago+Articular", isCorrect: false },
-                    { name: "Menisco", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Menisco", isCorrect: false }
+                    { img: "ligamento.jpg", isCorrect: false },
+                    { img: "tendon.jpg", isCorrect: true },
+                    { img: "cartilago.jpg", isCorrect: false },
+                    { img: "menisco.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Identifica la CAJA TORÁCICA (Costillas y Esternón):",
+                question: "¿Cuál de las imágenes muestra la CAJA TORÁCICA (Costillas y Esternón)?",
                 options: [
-                    { name: "Pelvis", url: "https://placehold.co/300x300/1e293b/a855f7?text=Pelvis", isCorrect: false },
-                    { name: "Cráneo", url: "https://placehold.co/300x300/1e293b/ec4899?text=Craneo", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 9 */
-                    { name: "Caja Torácica", url: "https://placehold.co/300x300/1e293b/3b82f6?text=Caja+Toracica", isCorrect: true },
-                    { name: "Escápula", url: "https://placehold.co/300x300/1e293b/10b981?text=Escapula", isCorrect: false }
+                    { img: "pelvis.jpg", isCorrect: false },
+                    { img: "craneo.jpg", isCorrect: false },
+                    { img: "caja_toracica.jpg", isCorrect: true },
+                    { img: "escapula.jpg", isCorrect: false }
                 ]
             },
             {
-                question: "Selecciona el MÚSCULO TRÍCEPS BRAQUIAL:",
+                question: "Selecciona la imagen del MÚSCULO TRÍCEPS BRAQUIAL:",
                 options: [
-                    { name: "Bíceps", url: "https://placehold.co/300x300/1e293b/f59e0b?text=Biceps+Anterior", isCorrect: false },
-                    /* CUSTOMIZABLE IMAGE URL 10 */
-                    { name: "Tríceps", url: "https://placehold.co/300x300/1e293b/ef4444?text=Triceps+Posterior", isCorrect: true },
-                    { name: "Trapecio", url: "https://placehold.co/300x300/1e293b/8b5cf6?text=Trapecio", isCorrect: false },
-                    { name: "Pectoral", url: "https://placehold.co/300x300/1e293b/10b981?text=Pectoral", isCorrect: false }
+                    { img: "biceps.jpg", isCorrect: false },
+                    { img: "triceps.jpg", isCorrect: true },
+                    { img: "trapecio.jpg", isCorrect: false },
+                    { img: "pectoral.jpg", isCorrect: false }
                 ]
             }
         ];
 
         // -------------------------------------------------------------
         // DATA: FASE 3 - MEMORAMA (12 CARTAS / 6 PARES)
+        // Un lado: Nombre + Definición | Otro lado: Imagen .jpg
         // -------------------------------------------------------------
-        const memoramaCardsData = [
-            { id: 1, title: "Fémur", type: "Hueso más largo", icon: "fa-bone", color: "text-blue-400" },
-            { id: 2, title: "Bíceps", type: "Músculo Flexor Codo", icon: "fa-dumbbell", color: "text-red-400" },
-            { id: 3, title: "Rodilla", type: "Articulación Sinovial", icon: "fa-circle-nodes", color: "text-emerald-400" },
-            { id: 4, title: "Tendón", type: "Une Músculo a Hueso", icon: "fa-link", color: "text-amber-400" },
-            { id: 5, title: "Rótula", type: "Hueso Sesamoideo", icon: "fa-shield-halved", color: "text-purple-400" },
-            { id: 6, title: "Deltoides", type: "Músculo del Hombro", icon: "fa-child", color: "text-indigo-400" }
+        const memoramaPairs = [
+            {
+                id: 1,
+                name: "Rótula",
+                desc: "Hueso Sesamoideo de la Rodilla",
+                img: "memo_rotula.jpg"
+            },
+            {
+                id: 2,
+                name: "Fémur",
+                desc: "Hueso más largo del cuerpo",
+                img: "memo_femur.jpg"
+            },
+            {
+                id: 3,
+                name: "Bíceps Braquial",
+                desc: "Músculo flexor del brazo",
+                img: "memo_biceps.jpg"
+            },
+            {
+                id: 4,
+                name: "Tendón",
+                desc: "Une el músculo al hueso",
+                img: "memo_tendon.jpg"
+            },
+            {
+                id: 5,
+                name: "Rodilla",
+                desc: "Articulación Sinovial en bisagra",
+                img: "memo_rodilla.jpg"
+            },
+            {
+                id: 6,
+                name: "Deltoides",
+                desc: "Músculo principal del hombro",
+                img: "memo_deltoides.jpg"
+            }
         ];
 
         // -------------------------------------------------------------
@@ -552,6 +582,13 @@
         function updateTopBar() {
             document.getElementById('display-username').innerText = gameState.username;
             document.getElementById('display-score').innerText = `${gameState.totalScore} pts`;
+            
+            const vitiBadge = document.getElementById('display-viti-badge');
+            if (gameState.isViti) {
+                vitiBadge.classList.remove('hidden');
+            } else {
+                vitiBadge.classList.add('hidden');
+            }
         }
 
         // -------------------------------------------------------------
@@ -563,7 +600,16 @@
             if (!usernameInput) return;
 
             gameState.username = usernameInput;
-            gameState.totalScore = 0;
+            
+            // Función Especial Vicente -> Logro "Viti" + 100 puntos
+            if (usernameInput.toLowerCase() === 'vicente') {
+                gameState.isViti = true;
+                gameState.totalScore = 100;
+            } else {
+                gameState.isViti = false;
+                gameState.totalScore = 0;
+            }
+
             gameState.scoreP1 = 0;
             gameState.scoreP2 = 0;
             gameState.scoreP3 = 0;
@@ -585,7 +631,6 @@
 
         function loadP1Question() {
             if (gameState.p1Index >= questionsP1.length) {
-                // Phase 1 Completed -> Go to Phase 2
                 startPhase2();
                 return;
             }
@@ -593,7 +638,11 @@
             const q = questionsP1[gameState.p1Index];
             document.getElementById('p1-progress').innerText = `Pregunta ${gameState.p1Index + 1} de 10`;
             document.getElementById('p1-question-text').innerText = q.question;
-            document.getElementById('p1-image-container').innerHTML = q.svg;
+            
+            const imgEl = document.getElementById('p1-img');
+            imgEl.dataset.filename = q.img;
+            imgEl.src = getImgPath(q.img);
+            document.getElementById('p1-img-caption').innerText = ''; // Texto de ayuda removido
 
             const optionsContainer = document.getElementById('p1-options-container');
             optionsContainer.innerHTML = '';
@@ -610,7 +659,7 @@
                 optionsContainer.appendChild(btn);
             });
 
-            // Start Question Timer
+            // Timer
             gameState.p1TimerStart = Date.now();
             if (gameState.p1TimerInterval) clearInterval(gameState.p1TimerInterval);
             
@@ -648,7 +697,7 @@
                 buttons[q.correct].classList.add('bg-emerald-600/20', 'border-emerald-500/50');
                 feedback.classList.add('bg-rose-500/10', 'border-rose-500/40', 'text-rose-300');
                 feedbackIcon.className = "fa-solid fa-circle-xmark text-rose-400 text-xl";
-                feedbackText.innerText = `Incorrecto. La opción correcta era: ${q.options[q.correct]}`;
+                feedbackText.innerText = `Incorrecto. Opción correcta: ${q.options[q.correct]}`;
             }
 
             setTimeout(() => {
@@ -658,7 +707,7 @@
         }
 
         // -------------------------------------------------------------
-        // FASE 2: SELECCIÓN VISUAL LOGIC
+        // FASE 2: SELECCIÓN VISUAL (SOLO IMÁGENES SIN TEXTO EN TARJETAS)
         // -------------------------------------------------------------
         function startPhase2() {
             gameState.p2Index = 0;
@@ -668,7 +717,6 @@
 
         function loadP2Question() {
             if (gameState.p2Index >= questionsP2.length) {
-                // Phase 2 Completed -> Go to Phase 3
                 startPhase3();
                 return;
             }
@@ -681,20 +729,22 @@
             container.innerHTML = '';
             document.getElementById('p2-feedback').classList.add('hidden');
 
-            q.options.forEach((opt, idx) => {
+            q.options.forEach((opt) => {
                 const card = document.createElement('button');
-                card.className = "bg-slate-900/80 hover:bg-slate-700/80 border border-slate-700 p-3 rounded-2xl transition flex flex-col items-center group overflow-hidden shadow-lg text-left";
+                card.className = "bg-slate-900/80 hover:bg-slate-700/80 border border-slate-700 p-2 rounded-2xl transition flex flex-col items-center group overflow-hidden shadow-lg h-44 sm:h-52 justify-center relative";
+                
+                // ÚNICAMENTE LA IMAGEN SOBERBIA Y LIMPIA (SIN TEXTO)
                 card.innerHTML = `
-                    <div class="w-full h-32 bg-slate-950 rounded-xl overflow-hidden mb-2 relative flex items-center justify-center">
-                        <img src="${opt.url}" alt="${opt.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1e293b/ffffff?text=Imagen+Anatomia';">
-                    </div>
-                    <span class="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-indigo-300 w-full text-center">${opt.name}</span>
+                    <img src="${getImgPath(opt.img)}" alt="Anatomía" 
+                        class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition duration-300" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/300x300/1e293b/818cf8?text=Anatom%C3%ADa';">
                 `;
+                
                 card.onclick = () => handleP2Answer(opt.isCorrect, card);
                 container.appendChild(card);
             });
 
-            // Start Timer
+            // Timer
             gameState.p2TimerStart = Date.now();
             if (gameState.p2TimerInterval) clearInterval(gameState.p2TimerInterval);
             
@@ -730,7 +780,7 @@
                 selectedCard.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/50');
                 feedback.classList.add('bg-rose-500/10', 'border-rose-500/40', 'text-rose-300');
                 feedbackIcon.className = "fa-solid fa-circle-xmark text-rose-400 text-xl";
-                feedbackText.innerText = `Incorrecto. Observa bien la estructura anatómica.`;
+                feedbackText.innerText = `Incorrecto. No corresponde a la estructura solicitada.`;
             }
 
             setTimeout(() => {
@@ -740,7 +790,8 @@
         }
 
         // -------------------------------------------------------------
-        // FASE 3: MEMORAMA LOGIC (12 CARTAS)
+        // FASE 3: MEMORAMA LOGIC (12 CARTAS / 6 PARES)
+        // Lado A: Texto (Nombre/Definición) | Lado B: Imagen .jpg
         // -------------------------------------------------------------
         function startPhase3() {
             showScreen(screenPhase3);
@@ -748,13 +799,23 @@
             gameState.p3MatchedPairs = 0;
             gameState.p3Seconds = 0;
 
-            // Generate pairs (6 unique -> 12 cards)
+            // Generate deck: 6 cards text/concept + 6 cards images
             let deck = [];
-            memoramaCardsData.forEach(card => {
-                // Card A: Title
-                deck.push({ pairId: card.id, text: card.title, sub: "Término", icon: card.icon, color: card.color });
-                // Card B: Concept/Definition
-                deck.push({ pairId: card.id, text: card.type, sub: "Definición", icon: card.icon, color: card.color });
+            memoramaPairs.forEach(pair => {
+                // Card Type A: Concept/Name
+                deck.push({
+                    pairId: pair.id,
+                    isImageCard: false,
+                    title: pair.name,
+                    sub: pair.desc
+                });
+                // Card Type B: Image
+                deck.push({
+                    pairId: pair.id,
+                    isImageCard: true,
+                    img: pair.img,
+                    title: pair.name
+                });
             });
 
             // Shuffle Deck
@@ -763,21 +824,38 @@
             const grid = document.getElementById('p3-grid');
             grid.innerHTML = '';
 
-            deck.forEach((item, index) => {
+            deck.forEach((item) => {
                 const cardEl = document.createElement('div');
-                cardEl.className = "perspective h-28 cursor-pointer";
+                cardEl.className = "perspective h-32 cursor-pointer";
+
+                let backCardContent = '';
+                if (item.isImageCard) {
+                    // ÚNICAMENTE LA IMAGEN EN LA TARJETA DEL MEMORAMA
+                    backCardContent = `
+                        <div class="w-full h-full p-2 flex items-center justify-center">
+                            <img src="${getImgPath(item.img)}" alt="Anatomía" class="max-h-24 w-auto object-contain rounded-lg"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/c084fc?text=Anatom%C3%ADa';">
+                        </div>
+                    `;
+                } else {
+                    backCardContent = `
+                        <div class="p-2 text-center flex flex-col justify-center items-center h-full">
+                            <span class="text-xs font-extrabold text-purple-300 leading-tight mb-1">${item.title}</span>
+                            <span class="text-[10px] text-slate-300 leading-snug">${item.sub}</span>
+                        </div>
+                    `;
+                }
+
                 cardEl.innerHTML = `
                     <div class="card-inner w-full h-full duration-500 transform-style-3d relative rounded-xl shadow-lg">
                         <!-- Card Front (Hidden face) -->
                         <div class="card-front absolute inset-0 bg-slate-900 border border-slate-700 rounded-xl flex flex-col items-center justify-center backface-hidden text-purple-400">
                             <i class="fa-solid fa-bone text-2xl mb-1"></i>
-                            <span class="text-[10px] uppercase font-bold text-slate-500">Anatomía</span>
+                            <span class="text-[10px] uppercase font-bold text-slate-500">Memorama</span>
                         </div>
                         <!-- Card Back (Revealed face) -->
-                        <div class="card-back absolute inset-0 bg-slate-800 border-2 border-purple-500/80 rounded-xl flex flex-col items-center justify-center p-2 text-center backface-hidden rotate-y-180">
-                            <i class="fa-solid ${item.icon} ${item.color} text-lg mb-1"></i>
-                            <span class="text-xs font-bold text-white leading-tight">${item.text}</span>
-                            <span class="text-[9px] text-slate-400 mt-1">${item.sub}</span>
+                        <div class="card-back absolute inset-0 bg-slate-800 border-2 border-purple-500/80 rounded-xl flex items-center justify-center backface-hidden rotate-y-180 overflow-hidden">
+                            ${backCardContent}
                         </div>
                     </div>
                 `;
@@ -786,7 +864,7 @@
                 grid.appendChild(cardEl);
             });
 
-            // Start Phase 3 Stopwatch
+            // Start Timer
             gameState.p3TimerStart = Date.now();
             if (gameState.p3TimerInterval) clearInterval(gameState.p3TimerInterval);
 
@@ -798,8 +876,6 @@
 
         function flipMemoramaCard(cardEl, data) {
             const inner = cardEl.querySelector('.card-inner');
-            
-            // Prevent flipping if already flipped or 2 cards are currently being compared
             if (inner.classList.contains('rotate-y-180') || gameState.p3FlippedCards.length >= 2) return;
 
             inner.classList.add('rotate-y-180');
@@ -809,16 +885,13 @@
                 const [card1, card2] = gameState.p3FlippedCards;
 
                 if (card1.data.pairId === card2.data.pairId) {
-                    // Match found!
                     gameState.p3MatchedPairs++;
                     gameState.p3FlippedCards = [];
 
                     if (gameState.p3MatchedPairs === 6) {
-                        // Memorama Finished
                         finishGame();
                     }
                 } else {
-                    // No match -> flip back after delay
                     setTimeout(() => {
                         card1.cardEl.querySelector('.card-inner').classList.remove('rotate-y-180');
                         card2.cardEl.querySelector('.card-inner').classList.remove('rotate-y-180');
@@ -835,10 +908,6 @@
             clearInterval(gameState.p3TimerInterval);
             const totalSecs = gameState.p3Seconds;
 
-            // Memorama Scoring Rules:
-            // < 30s = +15 pts
-            // 30s - 60s = +7 pts
-            // > 60s = +3 pts
             if (totalSecs < 30) {
                 gameState.scoreP3 = 15;
             } else if (totalSecs <= 60) {
@@ -850,7 +919,6 @@
             gameState.totalScore += gameState.scoreP3;
             updateTopBar();
 
-            // Populate Results UI
             document.getElementById('res-username').innerText = gameState.username;
             document.getElementById('res-score-p1').innerText = `+${gameState.scoreP1} pts`;
             document.getElementById('res-score-p2').innerText = `+${gameState.scoreP2} pts`;
@@ -858,71 +926,110 @@
             document.getElementById('res-score-p3').innerText = `+${gameState.scoreP3} pts`;
             document.getElementById('res-score-total').innerText = `${gameState.totalScore} pts`;
 
+            const vitiRow = document.getElementById('res-viti-row');
+            if (gameState.isViti) {
+                vitiRow.classList.remove('hidden');
+            } else {
+                vitiRow.classList.add('hidden');
+            }
+
             showScreen(screenResults);
 
-            // Save Score to Firestore
-            saveScoreToFirestore();
+            saveScoreToLeaderboard();
         }
 
         // -------------------------------------------------------------
-        // FIREBASE FIRESTORE LEADERBOARD
+        // LEADERBOARD (FIREBASE + LOCAL STORAGE FALLBACK)
         // -------------------------------------------------------------
-        async function saveScoreToFirestore() {
-            if (!currentUser) return;
+        async function saveScoreToLeaderboard() {
+            const newRecord = {
+                username: gameState.username,
+                isViti: gameState.isViti,
+                score: gameState.totalScore,
+                date: new Date().toLocaleDateString('es-ES')
+            };
+
+            // Local fallback
             try {
-                const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'leaderboard', currentUser.uid);
-                await setDoc(userDocRef, {
-                    username: gameState.username,
-                    score: gameState.totalScore,
-                    timestamp: new Date().toISOString()
-                });
-                loadLeaderboard();
-            } catch (err) {
-                console.error("Error guardando puntaje en Firestore:", err);
+                const stored = localStorage.getItem('anato_leaderboard');
+                let list = stored ? JSON.parse(stored) : [];
+                list.push(newRecord);
+                localStorage.setItem('anato_leaderboard', JSON.stringify(list));
+                localLeaderboard = list;
+            } catch (e) {
+                console.warn("Error guardando en localStorage local:", e);
             }
+
+            // Save to Firestore if available
+            if (currentUser) {
+                try {
+                    const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'leaderboard', currentUser.uid + '_' + Date.now());
+                    await setDoc(userDocRef, {
+                        username: gameState.username,
+                        isViti: gameState.isViti,
+                        score: gameState.totalScore,
+                        timestamp: new Date().toISOString()
+                    });
+                } catch (err) {
+                    console.warn("Firestore setDoc warning:", err);
+                }
+            }
+
+            loadLeaderboard();
         }
 
         async function loadLeaderboard() {
             const tbody = document.getElementById('leaderboard-body');
+            let scores = [];
+
+            // Try loading from Firestore
             try {
                 const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard');
                 const snapshot = await getDocs(colRef);
-
-                let scores = [];
                 snapshot.forEach(docSnap => {
                     scores.push(docSnap.data());
                 });
-
-                // Sort scores descending in memory (Rule 2 compliant)
-                scores.sort((a, b) => b.score - a.score);
-
-                if (scores.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="3" class="py-4 text-center text-slate-500">Sé el primero en aparecer en la tabla.</td></tr>`;
-                    return;
-                }
-
-                tbody.innerHTML = '';
-                scores.forEach((entry, index) => {
-                    const row = document.createElement('tr');
-                    row.className = index % 2 === 0 ? 'bg-slate-900/40' : 'bg-slate-800/20';
-
-                    let rankBadge = `${index + 1}`;
-                    if (index === 0) rankBadge = `<i class="fa-solid fa-crown text-amber-400"></i> 1`;
-                    else if (index === 1) rankBadge = `<i class="fa-solid fa-medal text-slate-300"></i> 2`;
-                    else if (index === 2) rankBadge = `<i class="fa-solid fa-medal text-amber-600"></i> 3`;
-
-                    row.innerHTML = `
-                        <td class="py-3 px-4 font-bold text-slate-300">${rankBadge}</td>
-                        <td class="py-3 px-4 font-semibold text-white">${entry.username || 'Anónimo'}</td>
-                        <td class="py-3 px-4 text-right font-mono font-bold text-amber-400">${entry.score} pts</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-
             } catch (err) {
-                console.error("Error cargando leaderboard:", err);
-                tbody.innerHTML = `<tr><td colspan="3" class="py-4 text-center text-rose-400">Error cargando puntuaciones globales.</td></tr>`;
+                console.warn("Firestore fetch error, usando datos locales:", err);
             }
+
+            // Combine with local storage entries
+            try {
+                const stored = localStorage.getItem('anato_leaderboard');
+                if (stored) {
+                    const localList = JSON.parse(stored);
+                    scores = [...scores, ...localList];
+                }
+            } catch (e) {}
+
+            // Sort descending by total score
+            scores.sort((a, b) => b.score - a.score);
+
+            if (scores.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="py-4 text-center text-slate-500">No hay puntuaciones registradas aún. ¡Sé el primero!</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = '';
+            scores.forEach((entry, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-slate-900/40' : 'bg-slate-800/20';
+
+                let rankBadge = `${index + 1}º`;
+                if (index === 0) rankBadge = `<i class="fa-solid fa-crown text-amber-400"></i> 1º (Ganador)`;
+                else if (index === 1) rankBadge = `<i class="fa-solid fa-medal text-slate-300"></i> 2º`;
+                else if (index === 2) rankBadge = `<i class="fa-solid fa-medal text-amber-600"></i> 3º`;
+
+                const isVitiUser = entry.isViti || (entry.username && entry.username.toLowerCase() === 'vicente');
+                const soccerBadge = isVitiUser ? ' ⚽ <span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold px-1.5 py-0.5 rounded-full ml-1">Viti</span>' : '';
+
+                row.innerHTML = `
+                    <td class="py-3 px-4 font-bold text-slate-300">${rankBadge}</td>
+                    <td class="py-3 px-4 font-semibold text-white">${entry.username || 'Anónimo'}${soccerBadge}</td>
+                    <td class="py-3 px-4 text-right font-mono font-bold text-amber-400">${entry.score} pts</td>
+                `;
+                tbody.appendChild(row);
+            });
         }
 
         // Restart Game Button
